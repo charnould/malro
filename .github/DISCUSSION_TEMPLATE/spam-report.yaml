@@ -1,0 +1,77 @@
+title: 'domain.tld'
+body:
+  - type: checkboxes
+    attributes:
+      label: Before starting...
+      options:
+        - label: I've checked that no Spam report has already been filled for this `domain.tld`
+          required: true
+        - label: I've written a Spam report title containing only `domain.tld` (e.g. `malro.org`)
+          required: true
+        - label: I've NOT added any label to this Spam report
+          required: true
+
+  - type: dropdown
+    id: lang
+    attributes:
+      label: Lang
+      description: Main lang used by `domain.tld`
+      options:
+        - ar
+        - bn
+        - cs
+        - da
+        - de
+        - el
+        - en
+        - es
+        - fi
+        - fr
+        - he
+        - hi
+        - hu
+        - id
+        - it
+        - ja
+        - ko
+        - nl
+        - 'no'
+        - pl
+        - pt
+        - ro
+        - ru
+        - sk
+        - sv
+        - ta
+        - th
+        - tr
+        - zh
+    validations:
+      required: true
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Why this domain should be marked as spam?
+      description: A clear and concise explanation
+    validations:
+      required: true
+
+  - type: input
+    id: example
+    attributes:
+      label: Example
+      description: A fully qualified MALRO URL with https:// showcasing it's a spam
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### What are the next steps?
+        After you've submitted this Spam report:  
+        1. MALRO Spam Corps will check if `domain.tld` should be marked as spam.
+        2. Depending on investigation, this issue will be labeled `spam:pending`, `spam:yes` or `spam:no`.
+        3. If `spam:yes` label is assigned: `domain.tld` won't be able to login to MALRO anymore and all data published by `domain.tld` will be erased from MALRO datastore.
+        4. If `spam:pending` label is assigned: `domain.tld` will be asked to correct its events. Ultimately, `spam:yes` label could be assigned.

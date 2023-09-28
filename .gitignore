@@ -1,0 +1,5 @@
+package-lock.json
+/node_modules
+/datastore
+.DS_Store
+.env

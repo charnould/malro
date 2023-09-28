@@ -1,0 +1,12 @@
+node_modules
+datastore
+tests
+
+*.md
+*.jsonc
+
+.env.local
+.DS_Store
+.github
+.env
+.git

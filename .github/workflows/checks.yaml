@@ -1,0 +1,50 @@
+name: CI
+on:
+  pull_request:
+jobs:
+  #################
+  stylelint:
+    name: stylelint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 'latest'
+      - run: bun install
+      - run: bun dev:stylelint
+  #################
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 'latest'
+      - run: bun install
+      - run: bun dev:eslint
+  #################
+  format:
+    name: format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 'latest'
+      - run: bun install
+      - run: bun dev:format
+  #################
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 'latest'
+      - run: sudo apt install imagemagick
+      - run: bun install
+      - run: bun dev:init
+      - run: bun test

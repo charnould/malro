@@ -1,0 +1,138 @@
+{
+  "―――――――――――――――――": "",
+  "| GENERAL STUFF |": "",
+  "—————————————————": "",
+  "description": "Making cultural event data universally accessible",
+  "author": "Charles-Henri Arnould <charnould@icloud.com>",
+  "homepage": "https://www.malro.org",
+  "module": "index.ts",
+  "license": "MIT",
+  "type": "module",
+  "name": "malro",
+  "―――――――――――": "",
+  "| SCRITPS |": "",
+  "———————————": "",
+  "scripts": {
+    "―—――――――": "",
+    "start": "bash run.sh init_db && bun run index.ts",
+    "――――――――": "",
+    "dev:css": "bun dev:stylelint && postcss assets/css/src --use postcss-preset-env autoprefixer cssnano --no-map --dir assets/css/dist",
+    "dev:format": "bun x doctoc README.md && prettier --write . '!assets/css/dist/*.css' --plugin=prettier-plugin-sql",
+    "dev:init": "bash run.sh cleanup && bash run.sh init_db && bash run.sh seed_db && bun install",
+    "dev:upgrade": "bun upgrade && ncu -u && bun install && gem install kamal",
+    "dev:stylelint": "bun x stylelint 'assets/css/src/*.css' --fix",
+    "dev:start": "bun run --watch index.ts",
+    "dev:build": "docker build -t malro .",
+    "dev:eslint": "eslint --fix .",
+    "――――—――": "",
+    "deploy:bash": "kamal app exec -i --reuse bash -c deploy.yaml",
+    "deploy:unlock": "kamal lock release -c deploy.yaml",
+    "deploy:rollback": "kamal rollback -c deploy.yaml",
+    "deploy:logs": "kamal app logs -c deploy.yaml",
+    "deploy:env": "kamal env push -c deploy.yaml",
+    "deploy": "kamal deploy -c deploy.yaml"
+  },
+  "――――――――――――――――": "",
+  "| DEPENDENCIES |": "",
+  "————————————————": "",
+  "dependencies": {
+    "sql-formatter": "^13.0.0",
+    "croner": "^7.0.1",
+    "jose": "^4.14.6",
+    "hono": "^3.7.2",
+    "zod": "^3.22.2",
+    "qs": "^6.11.2"
+  },
+  "――――――――――――――――――――": "",
+  "| DEV DEPENDENCIES |": "",
+  "————————————————————": "",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-selector-bem-pattern": "^3.0.1",
+    "eslint-plugin-perfectionist": "^2.1.0",
+    "stylelint-config-standard": "^34.0.0",
+    "@typescript-eslint/parser": "^6.7.3",
+    "prettier-plugin-sql": "^0.15.1",
+    "postcss-preset-env": "^9.1.4",
+    "autoprefixer": "^10.4.16",
+    "postcss-cli": "^10.1.0",
+    "stylelint": "^15.10.3",
+    "puppeteer": "^21.3.5",
+    "typescript": "^5.2.2",
+    "bun-types": "^1.0.3",
+    "@types/qs": "^6.9.8",
+    "prettier": "^3.0.3",
+    "eslint": "^8.50.0",
+    "postcss": "^8.4.30",
+    "cssnano": "^6.0.1",
+    "doctoc": "^2.2.1",
+    "json5": "^2.2.3"
+  },
+  "―――――――――――――――――――": "",
+  "| PRETTIER CONFIG |": "",
+  "———————————————————": "",
+  "prettier": {
+    "trailingComma": "none",
+    "singleQuote": true,
+    "printWidth": 120,
+    "semi": false
+  },
+  "――――――—―――――――――――――": "",
+  "| STYLELINT CONFIG |": "",
+  "———————————————————―": "",
+  "stylelint": {
+    "extends": [
+      "stylelint-config-idiomatic-order",
+      "stylelint-config-standard"
+    ],
+    "rules": {
+      "selector-class-pattern": [
+        "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
+        {
+          "message": "Expected class selector to be BEM-compatible"
+        }
+      ],
+      "color-function-notation": [
+        "modern",
+        {
+          "ignore": [
+            "with-var-inside"
+          ]
+        }
+      ]
+    }
+  },
+  "――――――――――――――――—": "",
+  "| ESLINT CONFIG |": "",
+  "————————————————―": "",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2024": true
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended-type-checked",
+      "plugin:@typescript-eslint/stylistic-type-checked",
+      "plugin:perfectionist/recommended-line-length",
+      "eslint:recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    },
+    "parserOptions": {
+      "project": true,
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "ignorePatterns": [
+      "datastore/*",
+      "assets/*"
+    ]
+  }
+}

@@ -1,0 +1,657 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should insert and get 1 event from DRAFTS 1`] = `
+{
+  "booking_medium": "[{"allows_affiliate_partnership":true,"data":"https://www.malro.org","type":"url"},{"data":"on site (08:00 PM)","type":"string"},{"data":"contact@malro.org","type":"email"},{"data":"+33 (0)4 21 80 00 00","type":"phone"}]",
+  "booking_start": "2023-06-01T08:00",
+  "calendar": "[{"feature":["sign_language","relax"],"start":"2023-01-01T19:00","end":"2023-01-01T22:30","audio_lang":"fr","adult_fee":20,"child_fee":10},{"start":"2030-10-01T19:30","end":"2030-10-01T21:00","audio_lang":"fr","feature":null,"adult_fee":15,"child_fee":5},{"start":"2100-06-12T12:30","end":"2100-06-12T14:30","audio_lang":"fr","child_fee":10,"adult_fee":35,"feature":null}]",
+  "city": "Avignon",
+  "country": "FR",
+  "created_by": "malro.org",
+  "currency": "EUR",
+  "description": "[{"content":"Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................","title":"A title that must be at least 15 character-long","url":"https://www.malro.org?lang=en","organizer":"An organizer","detail":"Some details","lang":"en"},{"content":"Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................","title":"Un titre d'au moins 15 caratères","url":"https://www.malro.org?lang=fr","organizer":"Un organisateur","detail":"Des détails","lang":"fr"}]",
+  "door_time": 30,
+  "featuring": "[{"firstname":"Steve","lastname":"Jobs"},{"lastname":"Wozniak","firstname":"Steve"}]",
+  "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+  "latitude": 45.0113182067871,
+  "linked_to": "["malro.org","example.org"]",
+  "longitude": 4.4113402366638,
+  "mandatory_booking": "true",
+  "max_age": 99,
+  "min_age": 0,
+  "status": "published",
+  "street": "A street",
+  "support_email": "contact@malro.org",
+  "support_phone": "+33 (6) 11 45 67 98",
+  "timezone": "Europe/Paris",
+  "type": "["architecture","archive"]",
+  "updated_at": "2024-07-22T12:30:00.000Z",
+  "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+  "zipcode": "84140",
+}
+`;
+
+exports[`should insert and get 1 event from EVENTS 1`] = `
+{
+  "booking_medium": "[{"allows_affiliate_partnership":true,"data":"https://www.malro.org","type":"url"},{"data":"on site (08:00 PM)","type":"string"},{"data":"contact@malro.org","type":"email"},{"data":"+33 (0)4 21 80 00 00","type":"phone"}]",
+  "booking_start": "2023-06-01T08:00",
+  "calendar": "[{"feature":["sign_language","relax"],"start":"2023-01-01T19:00","end":"2023-01-01T22:30","audio_lang":"fr","adult_fee":20,"child_fee":10},{"start":"2030-10-01T19:30","end":"2030-10-01T21:00","audio_lang":"fr","feature":null,"adult_fee":15,"child_fee":5},{"start":"2100-06-12T12:30","end":"2100-06-12T14:30","audio_lang":"fr","child_fee":10,"adult_fee":35,"feature":null}]",
+  "city": "Avignon",
+  "country": "FR",
+  "created_by": "malro.org",
+  "currency": "EUR",
+  "description": "[{"content":"Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................","title":"A title that must be at least 15 character-long","url":"https://www.malro.org?lang=en","organizer":"An organizer","detail":"Some details","lang":"en"},{"content":"Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................","title":"Un titre d'au moins 15 caratères","url":"https://www.malro.org?lang=fr","organizer":"Un organisateur","detail":"Des détails","lang":"fr"}]",
+  "door_time": 30,
+  "featuring": "[{"firstname":"Steve","lastname":"Jobs"},{"lastname":"Wozniak","firstname":"Steve"}]",
+  "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+  "latitude": 45.0113182067871,
+  "linked_to": "["malro.org","example.org"]",
+  "longitude": 4.4113402366638,
+  "mandatory_booking": "true",
+  "max_age": 99,
+  "min_age": 0,
+  "status": "published",
+  "street": "A street",
+  "support_email": "contact@malro.org",
+  "support_phone": "+33 (6) 11 45 67 98",
+  "timezone": "Europe/Paris",
+  "type": "["architecture","archive"]",
+  "updated_at": "2024-07-22T12:30:00.000Z",
+  "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+  "zipcode": "84140",
+}
+`;
+
+exports[`should insert and get 1 event from EVENTS 2`] = `
+[
+  {
+    "adult_fee": 20,
+    "audio_lang": "fr",
+    "child_fee": 10,
+    "end": "2023-01-01T22:30",
+    "feature": "["sign_language","relax"]",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "start": "2023-01-01T19:00",
+  },
+  {
+    "adult_fee": 15,
+    "audio_lang": "fr",
+    "child_fee": 5,
+    "end": "2030-10-01T21:00",
+    "feature": null,
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "start": "2030-10-01T19:30",
+  },
+  {
+    "adult_fee": 35,
+    "audio_lang": "fr",
+    "child_fee": 10,
+    "end": "2100-06-12T14:30",
+    "feature": null,
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "start": "2100-06-12T12:30",
+  },
+]
+`;
+
+exports[`should insert and get 1 event from EVENTS 3`] = `
+[
+  {
+    "domain": "malro.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+  {
+    "domain": "example.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+]
+`;
+
+exports[`should update 1 event in EVENTS 1`] = `
+{
+  "booking_medium": "[{"allows_affiliate_partnership":true,"data":"https://www.malro.org","type":"url"},{"data":"on site (08:00 PM)","type":"string"},{"data":"contact@malro.org","type":"email"},{"data":"+33 (0)4 21 80 00 00","type":"phone"}]",
+  "booking_start": "2023-06-01T08:00",
+  "calendar": "[{"start":"2023-10-01T19:30","end":"2023-10-01T21:00","audio_lang":"fr","adult_fee":150,"child_fee":50,"feature":null},{"start":"2200-06-12T12:30","end":"2200-06-12T14:30","audio_lang":"fr","child_fee":10,"adult_fee":35,"feature":null}]",
+  "city": "Avignon",
+  "country": "FR",
+  "created_by": "malro.org",
+  "currency": "EUR",
+  "description": "[{"content":"Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................","title":"A title that must be at least 15 character-long","url":"https://www.malro.org?lang=en","organizer":"An organizer","detail":"Some details","lang":"en"},{"content":"Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................","title":"Un titre d'au moins 15 caratères","url":"https://www.malro.org?lang=fr","organizer":"Un organisateur","detail":"Des détails","lang":"fr"}]",
+  "door_time": 30,
+  "featuring": "[{"firstname":"Steve","lastname":"Jobs"},{"lastname":"Wozniak","firstname":"Steve"}]",
+  "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+  "latitude": 45.0113182067871,
+  "linked_to": "["google.org","example.org","test.org"]",
+  "longitude": 4.4113402366638,
+  "mandatory_booking": "false",
+  "max_age": 99,
+  "min_age": 0,
+  "status": "published",
+  "street": "A street",
+  "support_email": "contact@malro.org",
+  "support_phone": "+33 (6) 11 45 67 98",
+  "timezone": "Europe/Paris",
+  "type": "["architecture","archive"]",
+  "updated_at": "2025-07-22T12:30:00.000Z",
+  "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+  "zipcode": "84140",
+}
+`;
+
+exports[`should update 1 event in EVENTS 2`] = `
+[
+  {
+    "adult_fee": 150,
+    "audio_lang": "fr",
+    "child_fee": 50,
+    "end": "2023-10-01T21:00",
+    "feature": null,
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "start": "2023-10-01T19:30",
+  },
+  {
+    "adult_fee": 35,
+    "audio_lang": "fr",
+    "child_fee": 10,
+    "end": "2200-06-12T14:30",
+    "feature": null,
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "start": "2200-06-12T12:30",
+  },
+]
+`;
+
+exports[`should update 1 event in EVENTS 3`] = `
+[
+  {
+    "domain": "google.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+  {
+    "domain": "example.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+  {
+    "domain": "test.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+]
+`;
+
+exports[`should archive an organization 1`] = `
+[
+  {
+    "booking_medium": [
+      {
+        "allows_affiliate_partnership": true,
+        "data": "https://www.malro.org",
+        "type": "url",
+      },
+      {
+        "data": "on site (08:00 PM)",
+        "type": "string",
+      },
+      {
+        "data": "contact@malro.org",
+        "type": "email",
+      },
+      {
+        "data": "+33 (0)4 21 80 00 00",
+        "type": "phone",
+      },
+    ],
+    "booking_start": "2023-06-01T08:00",
+    "calendar": [
+      {
+        "adult_fee": 20,
+        "audio_lang": "fr",
+        "child_fee": 10,
+        "end": "2023-01-01T22:30",
+        "feature": [
+          "sign_language",
+          "relax",
+        ],
+        "start": "2023-01-01T19:00",
+      },
+    ],
+    "city": "Avignon",
+    "country": "FR",
+    "created_by": "malro.org",
+    "currency": "EUR",
+    "description": [
+      {
+        "content": "Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................",
+        "detail": "Some details",
+        "lang": "en",
+        "organizer": "An organizer",
+        "title": "A title that must be at least 15 character-long",
+        "url": "https://www.malro.org?lang=en",
+      },
+      {
+        "content": "Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................",
+        "detail": "Des détails",
+        "lang": "fr",
+        "organizer": "Un organisateur",
+        "title": "Un titre d'au moins 15 caratères",
+        "url": "https://www.malro.org?lang=fr",
+      },
+    ],
+    "door_time": 30,
+    "featuring": [
+      {
+        "firstname": "Steve",
+        "lastname": "Jobs",
+      },
+      {
+        "firstname": "Steve",
+        "lastname": "Wozniak",
+      },
+    ],
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+    "latitude": 45.0113182067871,
+    "linked_to": [
+      "malro.org",
+      "example.org",
+    ],
+    "longitude": 4.4113402366638,
+    "mandatory_booking": true,
+    "max_age": 99,
+    "min_age": 0,
+    "status": "published",
+    "street": "A street",
+    "support_email": "contact@malro.org",
+    "support_phone": "+33 (6) 11 45 67 98",
+    "timezone": "Europe/Paris",
+    "type": [
+      "architecture",
+      "archive",
+    ],
+    "updated_at": "2027-07-22T12:30:00.000Z",
+    "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+    "zipcode": "84140",
+  },
+  {
+    "booking_medium": [
+      {
+        "allows_affiliate_partnership": true,
+        "data": "https://www.malro.org",
+        "type": "url",
+      },
+      {
+        "data": "on site (08:00 PM)",
+        "type": "string",
+      },
+      {
+        "data": "contact@malro.org",
+        "type": "email",
+      },
+      {
+        "data": "+33 (0)4 21 80 00 00",
+        "type": "phone",
+      },
+    ],
+    "booking_start": "2023-06-01T08:00",
+    "calendar": [],
+    "city": "Avignon",
+    "country": "FR",
+    "created_by": "malro.org",
+    "currency": "EUR",
+    "description": [
+      {
+        "content": "Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................",
+        "detail": "Some details",
+        "lang": "en",
+        "organizer": "An organizer",
+        "title": "A title that must be at least 15 character-long",
+        "url": "https://www.malro.org?lang=en",
+      },
+      {
+        "content": "Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................",
+        "detail": "Des détails",
+        "lang": "fr",
+        "organizer": "Un organisateur",
+        "title": "Un titre d'au moins 15 caratères",
+        "url": "https://www.malro.org?lang=fr",
+      },
+    ],
+    "door_time": 30,
+    "featuring": [
+      {
+        "firstname": "Steve",
+        "lastname": "Jobs",
+      },
+      {
+        "firstname": "Steve",
+        "lastname": "Wozniak",
+      },
+    ],
+    "id": "dcfafd73-d2d6-4068-b608-1985a98d3f04",
+    "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+    "latitude": 45.0113182067871,
+    "linked_to": [],
+    "longitude": 4.4113402366638,
+    "mandatory_booking": true,
+    "max_age": 99,
+    "min_age": 0,
+    "status": "trashed",
+    "street": "A street",
+    "support_email": "contact@malro.org",
+    "support_phone": "+33 (6) 11 45 67 98",
+    "timezone": "Europe/Paris",
+    "type": [
+      "architecture",
+      "archive",
+    ],
+    "updated_at": "2027-07-22T12:30:00.000Z",
+    "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+    "zipcode": "84140",
+  },
+]
+`;
+
+exports[`should archive an organization 2`] = `
+[
+  {
+    "adult_fee": 20,
+    "audio_lang": "fr",
+    "child_fee": 10,
+    "end": "2023-01-01T22:30",
+    "feature": [
+      "sign_language",
+      "relax",
+    ],
+    "start": "2023-01-01T19:00",
+  },
+]
+`;
+
+exports[`should archive an organization 3`] = `[]`;
+
+exports[`should archive an organization 4`] = `
+[
+  {
+    "adult_fee": 20,
+    "audio_lang": "fr",
+    "child_fee": 10,
+    "end": "2023-01-01T22:30",
+    "feature": "["sign_language","relax"]",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "start": "2023-01-01T19:00",
+  },
+]
+`;
+
+exports[`should archive an organization 5`] = `
+[
+  {
+    "domain": "malro.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+  {
+    "domain": "example.org",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+  },
+]
+`;
+
+exports[`should link an organization to an event 1`] = `"["example.org","malro.org","test.org"]"`;
+
+exports[`should unlink an organization from event 1`] = `"["malro.org"]"`;
+
+exports[`should trash an event or a draft 1`] = `
+[
+  {
+    "booking_medium": "[{"allows_affiliate_partnership":true,"data":"https://www.malro.org","type":"url"},{"data":"on site (08:00 PM)","type":"string"},{"data":"contact@malro.org","type":"email"},{"data":"+33 (0)4 21 80 00 00","type":"phone"}]",
+    "booking_start": "2023-06-01T08:00",
+    "calendar": "[]",
+    "city": "Avignon",
+    "country": "FR",
+    "created_by": "malro.org",
+    "currency": "EUR",
+    "description": "[{"content":"Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................","title":"A title that must be at least 15 character-long","url":"https://www.malro.org?lang=en","organizer":"An organizer","detail":"Some details","lang":"en"},{"content":"Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................","title":"Un titre d'au moins 15 caratères","url":"https://www.malro.org?lang=fr","organizer":"Un organisateur","detail":"Des détails","lang":"fr"}]",
+    "door_time": 30,
+    "featuring": "[{"firstname":"Steve","lastname":"Jobs"},{"lastname":"Wozniak","firstname":"Steve"}]",
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+    "latitude": 45.0113182067871,
+    "linked_to": "[]",
+    "longitude": 4.4113402366638,
+    "mandatory_booking": "true",
+    "max_age": 99,
+    "min_age": 0,
+    "status": "trashed",
+    "street": "A street",
+    "support_email": "contact@malro.org",
+    "support_phone": "+33 (6) 11 45 67 98",
+    "timezone": "Europe/Paris",
+    "type": "["architecture","archive"]",
+    "updated_at": "2027-07-22T12:30:00.000Z",
+    "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+    "zipcode": "84140",
+  },
+]
+`;
+
+exports[`should list events for Dashboard 1`] = `
+[
+  {
+    "booking_medium": [
+      {
+        "allows_affiliate_partnership": true,
+        "data": "https://www.malro.org",
+        "type": "url",
+      },
+      {
+        "data": "on site (08:00 PM)",
+        "type": "string",
+      },
+      {
+        "data": "contact@malro.org",
+        "type": "email",
+      },
+      {
+        "data": "+33 (0)4 21 80 00 00",
+        "type": "phone",
+      },
+    ],
+    "booking_start": "2023-06-01T08:00",
+    "calendar": [
+      {
+        "adult_fee": 20,
+        "audio_lang": "fr",
+        "child_fee": 10,
+        "end": "2023-01-01T22:30",
+        "feature": [
+          "sign_language",
+          "relax",
+        ],
+        "start": "2023-01-01T19:00",
+      },
+      {
+        "adult_fee": 15,
+        "audio_lang": "fr",
+        "child_fee": 5,
+        "end": "2030-10-01T21:00",
+        "feature": null,
+        "start": "2030-10-01T19:30",
+      },
+      {
+        "adult_fee": 35,
+        "audio_lang": "fr",
+        "child_fee": 10,
+        "end": "2100-06-12T14:30",
+        "feature": null,
+        "start": "2100-06-12T12:30",
+      },
+    ],
+    "city": "Avignon",
+    "country": "FR",
+    "created_by": "malro.org",
+    "currency": "EUR",
+    "description": [
+      {
+        "content": "Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................",
+        "detail": "Some details",
+        "lang": "en",
+        "organizer": "An organizer",
+        "title": "A title that must be at least 15 character-long",
+        "url": "https://www.malro.org?lang=en",
+      },
+      {
+        "content": "Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................",
+        "detail": "Des détails",
+        "lang": "fr",
+        "organizer": "Un organisateur",
+        "title": "Un titre d'au moins 15 caratères",
+        "url": "https://www.malro.org?lang=fr",
+      },
+    ],
+    "door_time": 30,
+    "featuring": [
+      {
+        "firstname": "Steve",
+        "lastname": "Jobs",
+      },
+      {
+        "firstname": "Steve",
+        "lastname": "Wozniak",
+      },
+    ],
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+    "latitude": 45.0113182067871,
+    "linked_to": [
+      "malro.org",
+      "example.org",
+    ],
+    "longitude": 4.4113402366638,
+    "mandatory_booking": true,
+    "max_age": 99,
+    "min_age": 0,
+    "status": "published",
+    "street": "A street",
+    "support_email": "contact@malro.org",
+    "support_phone": "+33 (6) 11 45 67 98",
+    "timezone": "Europe/Paris",
+    "type": [
+      "architecture",
+      "archive",
+    ],
+    "updated_at": "2024-07-22T12:30:00.000Z",
+    "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+    "zipcode": "84140",
+  },
+  {
+    "booking_medium": [
+      {
+        "allows_affiliate_partnership": true,
+        "data": "https://www.malro.org",
+        "type": "url",
+      },
+      {
+        "data": "on site (08:00 PM)",
+        "type": "string",
+      },
+      {
+        "data": "contact@malro.org",
+        "type": "email",
+      },
+      {
+        "data": "+33 (0)4 21 80 00 00",
+        "type": "phone",
+      },
+    ],
+    "booking_start": "2023-06-01T08:00",
+    "calendar": [
+      {
+        "adult_fee": 20,
+        "audio_lang": "fr",
+        "child_fee": 10,
+        "end": "2023-01-01T22:30",
+        "feature": [
+          "sign_language",
+          "relax",
+        ],
+        "start": "2023-01-01T19:00",
+      },
+      {
+        "adult_fee": 15,
+        "audio_lang": "fr",
+        "child_fee": 5,
+        "end": "2030-10-01T21:00",
+        "feature": null,
+        "start": "2030-10-01T19:30",
+      },
+      {
+        "adult_fee": 35,
+        "audio_lang": "fr",
+        "child_fee": 10,
+        "end": "2100-06-12T14:30",
+        "feature": null,
+        "start": "2100-06-12T12:30",
+      },
+    ],
+    "city": "Avignon",
+    "country": "FR",
+    "created_by": "malro.org",
+    "currency": "EUR",
+    "description": [
+      {
+        "content": "Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................",
+        "detail": "Some details",
+        "lang": "en",
+        "organizer": "An organizer",
+        "title": "A title that must be at least 15 character-long",
+        "url": "https://www.malro.org?lang=en",
+      },
+      {
+        "content": "Du contenu qui doit être au minimum de 50 caractères (sinon cela n'est pas considéré comme une description valide.....................................",
+        "detail": "Des détails",
+        "lang": "fr",
+        "organizer": "Un organisateur",
+        "title": "Un titre d'au moins 15 caratères",
+        "url": "https://www.malro.org?lang=fr",
+      },
+    ],
+    "domain": "malro.org",
+    "door_time": 30,
+    "featuring": [
+      {
+        "firstname": "Steve",
+        "lastname": "Jobs",
+      },
+      {
+        "firstname": "Steve",
+        "lastname": "Wozniak",
+      },
+    ],
+    "id": "29b4981c-dad6-4908-9805-8bbcbbb8f706",
+    "image_url": "https://www.malro.org/datastore/images/29b4981c-dad6-4908-9805-8bbcbbb8f706.webp",
+    "latitude": 45.0113182067871,
+    "linked_to": [
+      "malro.org",
+      "example.org",
+    ],
+    "longitude": 4.4113402366638,
+    "mandatory_booking": true,
+    "max_age": 99,
+    "min_age": 0,
+    "status": "published",
+    "street": "A street",
+    "support_email": "contact@malro.org",
+    "support_phone": "+33 (6) 11 45 67 98",
+    "timezone": "Europe/Paris",
+    "type": [
+      "architecture",
+      "archive",
+    ],
+    "updated_at": "2024-07-22T12:30:00.000Z",
+    "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw",
+    "zipcode": "84140",
+  },
+]
+`;

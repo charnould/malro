@@ -1,0 +1,396 @@
+// MALRO SPECIFICATION
+// Guiding principles: https://github.com/charnould/malro#readme
+// This event is fictional
+
+{
+  //
+  //
+  //
+  // GENERIC METADATA
+  //
+
+  // UUID of the event
+  // -----------------
+  // It uniquely identifies an event
+  // No MALRO event can EVER have the same UUID (MALRO database forbids it)
+  // This field is required
+  // Type: string
+  // Format: uuid v4
+  "id": "d949ae16-b3e8-4cc5-8b5b-cf57e69f812c",
+
+  // Creator of this event
+  // ----------------------
+  // This field identifies who has created this event
+  // This field is required
+  // Type: string
+  // Format: domain.tld
+  "created_by": "louvre.fr",
+
+  // Last update of this event
+  // -------------------------
+  // This field lets devs know if this event has been updated since they consume it
+  // Update can be either about event data or about promotional media
+  // This field is required
+  // Type: string
+  // Format: valid UTC ISO date with millis
+  "updated_at": "2023-08-01T12:13:05.479Z",
+
+  // Status ot this event
+  // --------------------
+  // This field lets devs know if this event is published, trashed or...
+  // This field is required
+  // Type: string
+  // Format: valid values and definitions available at enums/status.ts
+  "status": "published",
+
+  // Who is linked to this event
+  // --------------------
+  // This field indicates which organizations are linked to this event
+  // This field is required
+  // Type: array of domain.tld (= `created_by` key)
+  // Must contain at least the cultural operator having created this event `created_by` key
+  "linked_to": ["louvre.fr", "musee-orsay.fr"],
+
+  //
+  //
+  //
+  // LOCATION
+  //
+
+  // Latitude in decimal degrees (WGS84) where this event takes place
+  // ----------------------------------------------------------------
+  // This field is required
+  // Type: number
+  // Format: value between -90 and 90
+  "latitude": 48.8588945,
+
+  // Longitude in decimal degrees (WGS84) where this event takes place
+  // -----------------------------------------------------------------
+  // This field is required
+  // Type: number
+  // Format: value between -180 and 180
+  "longitude": 2.3410886,
+
+  // The street
+  // ----------
+  // Human-readable address
+  // Must be written in the language of the country where the event takes place
+  // This field is required
+  // Type: string
+  "street": "20, Quai du Louvre",
+
+  // The zipcode
+  // -----------
+  // This field is required
+  // Type: string
+  "zipcode": "75001",
+
+  // The city
+  // --------
+  // This field is required
+  // Type: string
+  "city": "Paris",
+
+  // The country
+  // -----------
+  // This field is required
+  // Type: string
+  // Format: ISO 3166-1 alpha-2 country code (https://en.wikipedia.org/wiki/ISO_3166-2)
+  //         valid values available at enums/country.ts
+  "country": "FR",
+
+  //
+  //
+  //
+  // DESCRIPTION (LANGUAGE AGNOSTIC)
+  //
+
+  // Minimum age to attend the event
+  // -------------------------------
+  // This field is required
+  // Type: number
+  // Format: value between 0 and 99 with min < max
+  // Default: 0
+  "min_age": 0,
+
+  // Maximum age to attend the event
+  // -------------------------------
+  // This field is required
+  // Type: number
+  // Format: value between 0 and 99 with min < max
+  // Default: 99
+  "max_age": 99,
+
+  // What kind of event is it?
+  // -------------------------
+  // This field is required
+  // Type: array (min. length is 1 and max. length is 3)
+  // Format: valid values and definitions available at enums/type.ts
+  "type": ["classical", "concert"],
+
+  // Who is featured in this event?
+  // ------------------------------
+  // This field is required
+  // Type: array of object with `firstname` and `lastname` keys
+  // Format: null or an array with length >= 1
+  "featuring": [
+    // If a person name has multiple written forms: do include them
+    // If it's a music band (e.g. "Ghinzu"): add it to `lastname` key
+    { "firstname": "Piotr Ilitch", "lastname": "TCHAÏKOVSKI" },
+    { "firstname": "Piotr Ilitch", "lastname": "TCHAÏKOVSKY" },
+    { "firstname": "Пётр Ильич", "lastname": "ЧАЙКОВСКИЙ" }
+  ],
+
+  //
+  //
+  //
+  // DESCRIPTION (LANGUAGE SPECIFIC)
+  //
+
+  // An array of objects where each object is a description in a specific lang.
+  // Indeed, sometime cultural operators provide an event description in one or more languages
+  // Thus, there might be `n` descriptions (1 per language) for one event.
+  // Type: an array with length >= 1
+  "description": [
+    {
+      // In which language the description is written?
+      // ---------------------------------------------
+      // This field is required
+      // Type: string
+      // Format: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+      //         valid values available at enums/lang.ts
+      "lang": "en",
+
+      // What's the organizer's name of this event?
+      // ------------------------------------------
+      // This field is required
+      // Type: string (must be in the language defined by `lang`)
+      "organizer": "Louvre Museum",
+
+      // What's the event title?
+      // -----------------------
+      // This field is required
+      // Type: string (must be in the language defined by `lang`)
+      // Format: at least 15 characters
+      "title": "The Golden Age of the portuguese renaissance",
+
+      // What's the event description?
+      // -----------------------------
+      // This field is required
+      // Type: string (must be in the language defined by `lang`)
+      // Format: at least 150 characters
+      "content": "This exhibition is the first opportunity..............................................................................................................",
+
+      // Is there some small prints you want/need to specify?
+      // ----------------------------------------------------
+      // This field is required
+      // Type: null or string (must be in the language defined by `lang`)
+      "detail": "Some details",
+
+      // What's the URL to get more information about this event in the lang defined by `lang`?
+      // --------------------------------------------------------------------------------------
+      // This field is required
+      // Type: string
+      // Format: uri (must be a fully qualified URL that includes `http://` or `https://`)
+      "url": "https://www.louvre.fr/fake-url-in-english"
+    },
+
+    // The very same description but in french
+    {
+      "lang": "fr",
+      "organizer": "Musée du Louvre",
+      "title": "L’âge d'or de la renaissance portugaise",
+      "content": "Pour la première fois, les visiteurs du Louvre........................................................................................................",
+      "detail": "Quelques détails...",
+      "url": "https://www.louvre.fr/fake-url-in-french"
+    }
+    // { ... }
+  ],
+
+  //
+  //
+  //
+  // CALENDAR, FEES AND FEATURES
+  //
+
+  // Currency used to pay entrance fees
+  // ----------------------------------
+  // This field is required
+  // Type: string
+  // Format: must be an ISO 4217 currency codes: e.g. `EUR` (https://en.wikipedia.org/wiki/ISO_4217)
+  //         valid values available at enums/currency.ts
+  "currency": "EUR",
+
+  // Timezone where the event is located
+  // -----------------------------------
+  // This field is required
+  // Type: string
+  // Format: must be a valid IANA timezone name: e.g. `Europe/Paris`
+  //         valid values available at enums/timezone.ts
+  "timezone": "Europe/Paris",
+
+  // Number of minutes before the event starts and when doors open
+  // -------------------------------------------------------------
+  // This field is required
+  // Type: number >= 0
+  // Default: 0
+  "door_time": 30,
+
+  // When is the event, what are the applicable fees and special features?
+  // ---------------------------------------------------------------------
+  // TODO?: Number of occurences must be limited to the next 365 days to
+  // force cultural organizations to update yearly recurring events. The
+  // objective is to prevent MALRO DB containing out-of-date events.
+  // ---------------------------------------------------------------------
+  // This field is required
+  // Type: array of objects with length >= 1
+  "calendar": [
+    {
+      // When the event starts?
+      // ----------------------
+      // This field is required
+      // Type: string
+      // Format: ISO date
+      //         regex: /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/
+      "start": "2023-12-12T20:00",
+
+      // When the event ends?
+      // --------------------
+      // This field is required
+      // Type: string
+      // Format: ISO date
+      //         regex: /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/
+      "end": "2023-12-12T22:30",
+
+      // adult_fee
+      // ---------
+      // Must be per-adult without any particular discount and entrance fee of `0` (zero)
+      // means this a free event. Entrance fee is in the unit specified by `currency` key.
+      // This field is required
+      // Type: number >= 0
+      // Default: 0
+      "adult_fee": 15,
+
+      // child_fee
+      // ---------
+      // Must be per-child without any particular discount and entrance fee of `0` (zero)
+      // means this a free event. Entrance fee is in the unit specified by `currency` key.
+      // This field is required
+      // Type: number >= 0
+      // Default: 0
+      "child_fee": 0,
+
+      // What are the special features of this event?
+      // --------------------------------------------
+      // This field is required
+      // Type: null or array of length >= 1
+      // Format: valid values and definitions available at enums/features.ts
+      "feature": ["wheelchair_accessible", "sound_amplification", "relax"],
+
+      // In which audio language the event is available?
+      // (Useful for Orignal version movie!)
+      // -----------------------------------------------
+      // This field is required
+      // Type: null or string
+      // Format: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+      //         valid values available at enums/lang.ts
+      "audio_lang": "fr"
+    },
+    {
+      "start": "2024-12-12T20:00",
+      "end": "2024-12-12T22:30",
+      "adult_fee": 15,
+      "child_fee": 0,
+      "feature": null,
+      "audio_lang": "fr"
+    }
+    // { ... }
+  ],
+
+  //
+  //
+  //
+  // BOOKING
+  //
+
+  // Is booking mandatory to attend this event?
+  // ------------------------------------------
+  // This field is required
+  // Type: boolean
+  // Default: false
+  "mandatory_booking": true,
+  // When the booking for this event starts?
+  // ---------------------------------------
+  // Applicable timezone is the one defined above.
+  // This field is required
+  // Type: null or string
+  // Format: ISO date
+  //         regex: /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/
+  "booking_start": "2024-01-01T00:00",
+
+  // Where can you book the event?
+  // -----------------------------
+  // An array of objects where each object is a booking medium
+  // Type: null or an array of length >= 1
+  // Cannont be `null` if `booking.mandatory` is `true`
+  "booking_medium": [
+    // A webpage (must be a fully qualified URL that includes `http://` or `https://`)
+    // `allows_affiliate_partnership` is required for `url` and can be `true`, `false` or `null`
+    // `false` means that this website DOES NOT propose affiliate partnership,
+    // `true` means that this website DO propose affiliate partnership,
+    // `null` means that it is not known whether this website propose affiliate partnership or not, or it's not applicable.
+    { "type": "url", "data": "https://www.ticketlouvre.fr", "allows_affiliate_partnership": true },
+
+    // A phone (must be a fully formatted phone number that includes international extention. e.g. `+33` for France)
+    { "type": "phone", "data": "+33 (0)1 40 20 53 17" },
+
+    // An email (must be a valid email)
+    { "type": "email", "data": "ticket@louvre.fr" },
+
+    // A custom string (must be short)
+    { "type": "string", "data": "on site (max 8 PM)" }
+    // { ...}
+  ],
+
+  //
+  //
+  //
+  // CUSTOMER SERVICE
+  //
+
+  // A valid email address actively monitored by the event’s customer service
+  // ------------------------------------------------------------------------
+  // This field is required
+  // Type: string
+  // Format: email
+  "support_email": "info@louvre.fr",
+
+  // Voice telephone number actively monitored by the event’s customer service
+  // -------------------------------------------------------------------------
+  // This field is required
+  // Type: null or string
+  // Format: a fully formatted phone number that includes international extention (e.g. `+33` for France)
+  "support_phone": "+33 (0)1 40 20 53 17",
+
+  //
+  //
+  //
+  // PROMOTIONAL MEDIA
+  //
+
+  // An image to promote this event
+  // ------------------------------
+  // This field is required
+  // Type: url (must be a fully qualified URL that includes `http://` or `https://`)
+  // Image spec: `.webp` format - 340px (height) x 636px (width)
+  // If provided image does not meet specification, MALRO will modified it
+  "image_url": "https://www.malro.org/datastore/images/d949ae16-b3e8-4cc5-8b5b-cf57e69f812c.webp",
+
+  // A video to promote this event
+  // -----------------------------
+  // This field is required
+  // Type: null or url
+  // if `type` === `url`:  must be a fully qualified URL that includes `http://` or `https://`
+  // At this time, only YouTube videos are allowed
+  "video_url": "https://www.youtube.com/watch?v=f7TCuxfEitw"
+}

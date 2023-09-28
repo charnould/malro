@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "lib": ["ESNext", "DOM"],
+    "types": ["bun-types"],
+    "module": "esnext",
+    "target": "esnext",
+    "strict": true
+  }
+}

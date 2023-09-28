@@ -1,0 +1,31 @@
+service: malro
+
+image: charnould/malro
+
+servers:
+  - 128.140.54.118
+
+registry:
+  server: ghcr.io
+  username: charnould
+  password:
+    - REGISTRY_TOKEN
+
+volumes:
+  - 'datastore:/app/datastore'
+
+env:
+  clear:
+    NODE_ENV: production
+    BASE_URL: https://malro.org
+    EMAILER_ENDPOINT: https://app.mailpace.com/api/v1/send
+  secret:
+    - EMAILER_TOKEN
+    - CRYPTO_1
+    - CRYPTO_2
+
+healthcheck:
+  path: /
+
+builder:
+  multiarch: false

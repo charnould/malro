@@ -1,0 +1,39 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should generate a valid ical event 1`] = `
+"BEGIN:VCALENDAR
+PRODID:-//www.MALRO.org//Calendar//EN
+VERSION:2.0
+BEGIN:VEVENT
+UID:29b4981c-dad6-4908-9805-8bbcbbb8f706
+DTSTAMP:20231127T193700
+DTSTART:20230101T190000
+DTEND:20230101T223000
+ORGANIZER;CN=malro.org:MAILTO:contact@malro.org
+SUMMARY:A title that must be at least 15 character-long
+DESCRIPTION:Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................
+URL:https://www.malro.org?lang=en
+LOCATION: A street • 84140 Avignon
+END:VEVENT
+END:VCALENDAR
+"
+`;
+
+exports[`should generate a valid ical event 2`] = `
+"BEGIN:VCALENDAR
+PRODID:-//www.MALRO.org//Calendar//EN
+VERSION:2.0
+BEGIN:VEVENT
+UID:29b4981c-dad6-4908-9805-8bbcbbb8f706
+DTSTAMP:20231127T193700
+DTSTART:20301001T193000
+DTEND:20301001T210000
+ORGANIZER;CN=malro.org:MAILTO:contact@malro.org
+SUMMARY:A title that must be at least 15 character-long
+DESCRIPTION:Some content that must be at least 50 character-long, otherwise it's not considered as a valid description............................................
+URL:https://www.malro.org?lang=en
+LOCATION: A street • 84140 Avignon
+END:VEVENT
+END:VCALENDAR
+"
+`;
