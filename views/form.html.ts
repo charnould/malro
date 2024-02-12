@@ -22,10 +22,10 @@ import { TYPE } from '../enums/type'
 //
 //
 export const get_error = (errors: ZodError[], key: string) =>
-  html` <ul>
+	html` <ul>
     ${errors?.map((error) =>
-      error.path.length <= 2 && error.path[0] === key ? html`<li class="input-error">${error.message}</li>` : null
-    )}
+			error.path.length <= 2 && error.path[0] === key ? html`<li class="input-error">${error.message}</li>` : null
+		)}
   </ul>`
 
 //
@@ -35,12 +35,12 @@ export const get_error = (errors: ZodError[], key: string) =>
 //
 //
 export const other_error = (errors: ZodError[], path_0: string, index: number, path_2: string) =>
-  html` <ul class="input-errors">
+	html` <ul class="input-errors">
     ${errors?.map((error) =>
-      error.path[0] === path_0 && error.path[1] === index && error.path[2] === path_2
-        ? html`<li class="input-error">${error.message}</li>`
-        : null
-    )}
+			error.path[0] === path_0 && error.path[1] === index && error.path[2] === path_2
+				? html`<li class="input-error">${error.message}</li>`
+				: null
+		)}
   </ul>`
 
 //
@@ -50,8 +50,8 @@ export const other_error = (errors: ZodError[], path_0: string, index: number, p
 //
 //
 export const view = async (lang: string, data: Event, errors: ZodError, does_image_exist: boolean) =>
-  layout(
-    html` <a class="s-back" href="/dashboard">← Tableau de bord</a>
+	layout(
+		html` <a class="s-back" href="/dashboard">← Tableau de bord</a>
 
       ${errors ? html`<p class="f-error">Le formulaire contient une ou des erreurs signalées en rouge</p>` : null}
 
@@ -66,15 +66,15 @@ export const view = async (lang: string, data: Event, errors: ZodError, does_ima
         </p>
 
         ${data.description.map(
-          (b, index) => html`
+					(b, index) => html`
             <div class="f-description" data-id="description">
               <label class="f-input__label f-input__label--full-width"
                 ><span class="f-input__label--label">Dans quelle langue est rédigée cette description ?</span>
                 <select class="f-input__text" name="description[${index}][lang]">
                   <option value="" selected>?</option>
                   ${LANG.map(
-                    (lang) => html` <option value="${lang}" ${lang === b.lang ? 'selected' : null}>${lang}</option>`
-                  )}
+										(lang) => html` <option value="${lang}" ${lang === b.lang ? 'selected' : null}>${lang}</option>`
+									)}
                 </select>
                 ${other_error(errors, 'description', index, 'lang')}
               </label>
@@ -134,7 +134,7 @@ ${b.detail}</textarea
               <p class="f-remove-item" onclick="delete_node(this)">Supprimer</p>
             </div>
           `
-        )}
+				)}
 
         <div class="center-error">${get_error(errors, 'description')}</div>
         <p class="f-add-item" onclick="clone('description', 'reset')">Ajouter une description dans une autre langue</p>
@@ -175,8 +175,8 @@ ${b.detail}</textarea
             <select class="f-input__text" name="country">
               <option value="">?</option>
               ${COUNTRY.map(
-                (iso) => html`<option value="${iso}" ${iso === data.country ? 'selected' : null}>${iso}</option> `
-              )}
+								(iso) => html`<option value="${iso}" ${iso === data.country ? 'selected' : null}>${iso}</option> `
+							)}
             </select>
             ${get_error(errors, 'country')}
           </label>
@@ -226,8 +226,8 @@ ${b.detail}</textarea
           <select class="f-input__text" name="timezone">
             <option value=""></option>
             ${TIMEZONE.map(
-              (utc) => html`<option value="${utc}" ${utc === data.timezone ? 'selected' : null}>${utc}</option>`
-            )}
+							(utc) => html`<option value="${utc}" ${utc === data.timezone ? 'selected' : null}>${utc}</option>`
+						)}
           </select>
           ${get_error(errors, 'timezone')}
         </label>
@@ -240,9 +240,9 @@ ${b.detail}</textarea
 
         <div class="f-cloud">
           ${await Promise.all(
-            TYPE.map(
-              async (type, index) =>
-                html` <input
+						TYPE.map(
+							async (type, index) =>
+								html` <input
                     ${data?.type?.includes(type) ? 'checked' : null}
                     name="type[${index}]"
                     class="f-input__check"
@@ -251,8 +251,8 @@ ${b.detail}</textarea
                     id="${type}"
                   />
                   <label class="f-input__checkbox" for="${type}">${await translate(type, 'enums', lang)}</label>`
-            )
-          )}
+						)
+					)}
         </div>
         <div class="center-error">${get_error(errors, 'type')}</div>
 
@@ -281,8 +281,8 @@ ${b.detail}</textarea
         </p>
 
         ${data.featuring?.map(
-          (b, index: number) =>
-            html` <div class="f-inputs__row" data-id="featuring">
+					(b, index: number) =>
+						html` <div class="f-inputs__row" data-id="featuring">
               <label class="f-input__label"
                 ><span class="f-input__label--label">Prénom</span>
                 <input
@@ -307,7 +307,7 @@ ${b.detail}</textarea
 
               <p class="f-remove-item-cross" onclick="delete_node(this)">✕</p>
             </div>`
-        )}
+				)}
 
         <div class="center-error">${get_error(errors, 'featuring')}</div>
 
@@ -325,9 +325,9 @@ ${b.detail}</textarea
           <select class="f-input__text" name="currency">
             <option value=""></option>
             ${CURRENCY.map(
-              (currency) =>
-                html`<option value="${currency}" ${currency === data.currency ? 'selected' : null}>${currency}</option>`
-            )}
+							(currency) =>
+								html`<option value="${currency}" ${currency === data.currency ? 'selected' : null}>${currency}</option>`
+						)}
           </select>
           ${get_error(errors, 'currency')}
         </label>
@@ -343,10 +343,11 @@ ${b.detail}</textarea
 
         <p class="f-text"><b>Quand</b> a lieu l'événement et quelles sont ses <b>caractéristiques</b> ?</p>
 
-        ${data.calendar
-          ? await Promise.all(
-              data.calendar.map(
-                async (c, index: number) => html`
+        ${
+					data.calendar
+						? await Promise.all(
+								data.calendar.map(
+									async (c, index: number) => html`
                   <div class="f-inputs__column" data-id="calendar">
                     <div class="f-inputs__row--calendar">
                       <label class="f-input__label"
@@ -404,11 +405,11 @@ ${b.detail}</textarea
                         <select class="f-input__text" name="calendar[${index}][audio_lang]">
                           <option value=""></option>
                           ${LANG.map(
-                            (lang) =>
-                              html` <option value="${lang}" ${lang === c.audio_lang ? 'selected' : null}>
+														(lang) =>
+															html` <option value="${lang}" ${lang === c.audio_lang ? 'selected' : null}>
                                 ${lang}
                               </option>`
-                          )}
+													)}
                         </select>
                         ${other_error(errors, 'calendar', index, 'audio_lang')}
                       </label>
@@ -416,9 +417,9 @@ ${b.detail}</textarea
 
                     <div class="f-features">
                       ${await Promise.all(
-                        FEATURE.map(
-                          async (feature, index2) =>
-                            html` <label class="f-feature">
+												FEATURE.map(
+													async (feature, index2) =>
+														html` <label class="f-feature">
                               <input
                                 ${c.feature?.includes(feature) ? 'checked' : null}
                                 name="calendar[${index}][feature][${index2}]"
@@ -430,16 +431,17 @@ ${b.detail}</textarea
                                 <span>${await translate(`${feature}_definition`, 'app', lang)}</span>
                               </div>
                             </label>`
-                        )
-                      )}
+												)
+											)}
                     </div>
 
                     <p class="f-remove-item" onclick="delete_node(this)">Supprimer</p>
                   </div>
                 `
-              )
-            )
-          : null}
+								)
+						  )
+						: null
+				}
 
         <div class="center-error">${get_error(errors, 'calendar')}</div>
         <p class="f-add-item" onclick="clone('calendar', 'reset')">Ajouter une date</p>
@@ -451,9 +453,9 @@ ${b.detail}</textarea
 
         <div class="f-cloud">
           ${await Promise.all(
-            ['true', 'false'].map(
-              async (bool) =>
-                html` <input
+						['true', 'false'].map(
+							async (bool) =>
+								html` <input
                     ${bool === String(data.mandatory_booking) ? 'checked' : null}
                     class="f-input__check"
                     name="mandatory_booking"
@@ -462,8 +464,8 @@ ${b.detail}</textarea
                     type="radio"
                   />
                   <label for="bm_${bool}" class="f-input__checkbox">${await translate(bool, 'app', lang)}</label>`
-            )
-          )}
+						)
+					)}
         </div>
         ${get_error(errors, 'mandatory_booking')}
 
@@ -481,23 +483,24 @@ ${b.detail}</textarea
           internet, il faut inclure <code>https://www...</code>
         </p>
 
-        ${data.booking_medium
-          ? await Promise.all(
-              data.booking_medium?.map(
-                async (b, index: number) =>
-                  html` <div class="f-inputs__row" data-id="booking">
+        ${
+					data.booking_medium
+						? await Promise.all(
+								data.booking_medium?.map(
+									async (b, index: number) =>
+										html` <div class="f-inputs__row" data-id="booking">
                     <label class="f-input__label"
                       ><span class="f-input__label--label">Type</span>
                       <select class="f-input__text" name="booking_medium[${index}][type]">
                         <option value=""></option>
                         ${await Promise.all(
-                          BOOKING.map(
-                            async (t) =>
-                              html`<option value="${t}" ${t === b.type ? 'selected' : null}>
+													BOOKING.map(
+														async (t) =>
+															html`<option value="${t}" ${t === b.type ? 'selected' : null}>
                                 ${await translate(`booking_medium_${t}`, 'app', lang)}
                               </option> `
-                          )
-                        )}
+													)
+												)}
                       </select>
                       ${other_error(errors, 'booking_medium', index, 'type')}
                     </label>
@@ -518,24 +521,25 @@ ${b.detail}</textarea
                       <select class="f-input__text" name="booking_medium[${index}][allows_affiliate_partnership]">
                         <option value=""></option>
                         ${await Promise.all(
-                          ['true', 'false', 'null'].map(
-                            async (a) =>
-                              html`<option
+													['true', 'false', 'null'].map(
+														async (a) =>
+															html`<option
                                 value="${a}"
                                 ${a === String(b.allows_affiliate_partnership) ? 'selected' : null}
                               >
                                 ${await translate(`booking_medium_${a}`, 'app', lang)}
                               </option> `
-                          )
-                        )}
+													)
+												)}
                       </select>
                     </label>
 
                     <p class="f-remove-item-cross" onclick="delete_node(this)">✕</p>
                   </div>`
-              )
-            )
-          : null}
+								)
+						  )
+						: null
+				}
         <div class="center-error">${get_error(errors, 'booking_medium')}</div>
         <p class="f-add-item" onclick="clone('booking', 'reset')">Ajouter une modalité de réservation</p>
         <!-- END: Booking -->
@@ -611,8 +615,9 @@ ${b.detail}</textarea
         <h1 class="f-title">Tout est OK ?</h1>
 
         <div class="f-submit__buttons">
-          ${data.status !== 'published'
-            ? html` <button class="f-submit__button" name="status" value="drafted" type="submit">
+          ${
+						data.status !== 'published'
+							? html` <button class="f-submit__button" name="status" value="drafted" type="submit">
                 <span class="show-when-enabled">
                   <span class="f-submit__button--big">Enregistrer comme brouillon</span>
                   <span class="f-submit__button--small">
@@ -622,7 +627,8 @@ ${b.detail}</textarea
                 </span>
                 <span class="show-when-disabled"></span>
               </button>`
-            : null}
+							: null
+					}
 
           <button class="f-submit__button" name="status" value="published" type="submit">
             <span class="show-when-enabled">
@@ -680,4 +686,4 @@ ${b.detail}</textarea
           node.parentNode.insertBefore(clone, node.nextSibling)
         }
       </script>`
-  )
+	)

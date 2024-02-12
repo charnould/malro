@@ -1,7 +1,7 @@
 import { html } from 'hono/html'
 
 export const layout = (body: string) => {
-  return html`<html>
+	return html`<html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <style>

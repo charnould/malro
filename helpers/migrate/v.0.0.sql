@@ -11,52 +11,49 @@ ATTACH DATABASE 'datastore/users.db' AS users;
 --
 -- Create events table
 -- CAUTION: This schema must be a perfect duplicate of users.drafts
-CREATE TABLE
-  IF NOT EXISTS main.events (
-    id TEXT PRIMARY KEY,
-    created_by TEXT NOT NULL,
-    status TEXT NOT NULL,
-    updated_at TEXT NOT NULL,
-    linked_to TEXT NOT NULL,
-    longitude REAL NOT NULL,
-    latitude REAL NOT NULL,
-    country TEXT NOT NULL,
-    zipcode TEXT NOT NULL,
-    city TEXT NOT NULL,
-    street TEXT NOT NULL,
-    timezone TEXT NOT NULL,
-    type TEXT NOT NULL,
-    min_age INTEGER NOT NULL,
-    max_age INTEGER NOT NULL,
-    door_time INTEGER NOT NULL,
-    mandatory_booking TEXT NOT NULL,
-    booking_start TEXT DEFAULT NULL,
-    booking_medium TEXT NOT NULL,
-    featuring TEXT DEFAULT NULL,
-    image_url TEXT NOT NULL,
-    video_url TEXT,
-    currency TEXT NOT NULL,
-    description TEXT,
-    calendar TEXT,
-    support_email TEXT DEFAULT NULL,
-    support_phone TEXT DEFAULT NULL
-  );
+CREATE TABLE IF NOT EXISTS main.events (
+  id TEXT PRIMARY KEY,
+  created_by TEXT NOT NULL,
+  status TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  linked_to TEXT NOT NULL,
+  longitude REAL NOT NULL,
+  latitude REAL NOT NULL,
+  country TEXT NOT NULL,
+  zipcode TEXT NOT NULL,
+  city TEXT NOT NULL,
+  street TEXT NOT NULL,
+  timezone TEXT NOT NULL,
+  type TEXT NOT NULL,
+  min_age INTEGER NOT NULL,
+  max_age INTEGER NOT NULL,
+  door_time INTEGER NOT NULL,
+  mandatory_booking TEXT NOT NULL,
+  booking_start TEXT DEFAULT NULL,
+  booking_medium TEXT NOT NULL,
+  featuring TEXT DEFAULT NULL,
+  image_url TEXT NOT NULL,
+  video_url TEXT,
+  currency TEXT NOT NULL,
+  description TEXT,
+  calendar TEXT,
+  support_email TEXT DEFAULT NULL,
+  support_phone TEXT DEFAULT NULL
+);
 
 -- Create calendar table
-CREATE TABLE
-  IF NOT EXISTS main.calendar (
-    id TEXT NOT NULL,
-    start TEXT NOT NULL,
-    end TEXT NOT NULL,
-    adult_fee REAL NOT NULL,
-    child_fee REAL NOT NULL,
-    audio_lang TEXT,
-    feature TEXT
-  );
+CREATE TABLE IF NOT EXISTS main.calendar (
+  id TEXT NOT NULL,
+  start TEXT NOT NULL,
+  end TEXT NOT NULL,
+  adult_fee REAL NOT NULL,
+  child_fee REAL NOT NULL,
+  audio_lang TEXT,
+  feature TEXT
+);
 
 -- Create linked_to table
-CREATE TABLE
-  IF NOT EXISTS main.linked_to (id TEXT NOT NULL, domain TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS main.linked_to (id TEXT NOT NULL, domain TEXT NOT NULL);
 
 --
 --
@@ -139,56 +136,53 @@ END;
 --
 --
 -- Create users table
-CREATE TABLE
-  IF NOT EXISTS users.users (
-    email TEXT PRIMARY KEY,
-    domain TEXT NOT NULL,
-    lang TEXT NOT NULL,
-    is_admin TEXT NOT NULL,
-    created_at TEXT DEFAULT (strftime ('%Y-%m-%dT%H:%M', 'now')),
-    created_by TEXT NOT NULL
-  );
+CREATE TABLE IF NOT EXISTS users.users (
+  email TEXT PRIMARY KEY,
+  domain TEXT NOT NULL,
+  lang TEXT NOT NULL,
+  is_admin TEXT NOT NULL,
+  created_at TEXT DEFAULT (strftime ('%Y-%m-%dT%H:%M', 'now')),
+  created_by TEXT NOT NULL
+);
 
 -- Create banned domain table
-CREATE TABLE
-  IF NOT EXISTS users.banned (
-    domain TEXT PRIMARY KEY,
-    added_from TEXT DEFAULT "third_party",
-    added_at TEXT DEFAULT (strftime ('%Y-%m-%dT%H:%M', 'now'))
-  );
+CREATE TABLE IF NOT EXISTS users.banned (
+  domain TEXT PRIMARY KEY,
+  added_from TEXT DEFAULT "third_party",
+  added_at TEXT DEFAULT (strftime ('%Y-%m-%dT%H:%M', 'now'))
+);
 
 -- Create drafts table
 -- !! Must be an exact copy of main.events
-CREATE TABLE
-  IF NOT EXISTS users.drafts (
-    id TEXT PRIMARY KEY,
-    created_by TEXT NOT NULL,
-    status TEXT NOT NULL,
-    updated_at TEXT NOT NULL,
-    linked_to TEXT NOT NULL,
-    longitude REAL NOT NULL,
-    latitude REAL NOT NULL,
-    country TEXT NOT NULL,
-    zipcode TEXT NOT NULL,
-    city TEXT NOT NULL,
-    street TEXT NOT NULL,
-    timezone TEXT NOT NULL,
-    type TEXT NOT NULL,
-    min_age INTEGER NOT NULL,
-    max_age INTEGER NOT NULL,
-    door_time INTEGER NOT NULL,
-    mandatory_booking TEXT NOT NULL,
-    booking_start TEXT DEFAULT NULL,
-    booking_medium TEXT NOT NULL,
-    featuring TEXT DEFAULT NULL,
-    image_url TEXT NOT NULL,
-    video_url TEXT,
-    currency TEXT NOT NULL,
-    description TEXT,
-    calendar TEXT,
-    support_email TEXT DEFAULT NULL,
-    support_phone TEXT DEFAULT NULL
-  );
+CREATE TABLE IF NOT EXISTS users.drafts (
+  id TEXT PRIMARY KEY,
+  created_by TEXT NOT NULL,
+  status TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  linked_to TEXT NOT NULL,
+  longitude REAL NOT NULL,
+  latitude REAL NOT NULL,
+  country TEXT NOT NULL,
+  zipcode TEXT NOT NULL,
+  city TEXT NOT NULL,
+  street TEXT NOT NULL,
+  timezone TEXT NOT NULL,
+  type TEXT NOT NULL,
+  min_age INTEGER NOT NULL,
+  max_age INTEGER NOT NULL,
+  door_time INTEGER NOT NULL,
+  mandatory_booking TEXT NOT NULL,
+  booking_start TEXT DEFAULT NULL,
+  booking_medium TEXT NOT NULL,
+  featuring TEXT DEFAULT NULL,
+  image_url TEXT NOT NULL,
+  video_url TEXT,
+  currency TEXT NOT NULL,
+  description TEXT,
+  calendar TEXT,
+  support_email TEXT DEFAULT NULL,
+  support_phone TEXT DEFAULT NULL
+);
 
 --
 --
