@@ -2,7 +2,7 @@ import { html } from 'hono/html'
 import { env } from 'bun'
 
 export const layout = (body: string) => {
-  return html` <!doctype html>
+	return html` <!doctype html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -34,9 +34,11 @@ export const layout = (body: string) => {
           }
         </style>
         <script defer src="/assets/js/turbo.js"></script>
-        ${env.NODE_ENV === 'production'
-          ? html`<link href="/assets/css/dist/app.css" rel="stylesheet" />`
-          : html`<link href="/assets/css/src/app.css" rel="stylesheet" />`}
+        ${
+					env.NODE_ENV === 'production'
+						? html`<link href="/assets/css/dist/app.css" rel="stylesheet" />`
+						: html`<link href="/assets/css/src/app.css" rel="stylesheet" />`
+				}
         <script defer data-domain="malro.org" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>

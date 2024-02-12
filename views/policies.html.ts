@@ -3,7 +3,7 @@ import { html } from 'hono/html'
 import { layout } from '../views/_layout'
 
 export const view = () =>
-  layout(html`
+	layout(html`
     <a class="s-back" href="/">← MALRO.org</a>
 
     <h1 class="i-headlines__title">Policies and Legal Stuff</h1>

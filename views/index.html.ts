@@ -7,7 +7,7 @@ import { layout } from '../views/_layout'
 import { Options } from '../schema/api'
 
 export const view = async (lang: string, message?: Message, options?: Options) =>
-  layout(html`
+	layout(html`
     <div class="i-background">
       <p class="i-notification">${await translate('028', 'index', lang)}</p>
 
@@ -51,15 +51,17 @@ export const view = async (lang: string, message?: Message, options?: Options) =
         <input class="i-signup__submit" type="submit" value="${await translate('call_to_action', 'index', lang)}" />
       </form>
 
-      ${message === Message.check_mailbox
-        ? html`<p class="i-signup__message i-signup__message--ok">
+      ${
+				message === Message.check_mailbox
+					? html`<p class="i-signup__message i-signup__message--ok">
             ${await translate('check_mailbox', 'index', lang)}
           </p>`
-        : message === Message.banned_domain
-        ? html`<p class="i-signup__message i-signup__message--ko">
-            ${await translate('banned_domain', 'index', lang)}
-          </p>`
-        : html`<p class="i-signup__message">&nbsp;</p>`}
+					: message === Message.banned_domain
+					  ? html`<p class="i-signup__message i-signup__message--ko">
+              ${await translate('banned_domain', 'index', lang)}
+            </p>`
+					  : html`<p class="i-signup__message">&nbsp;</p>`
+			}
 
       <div class="i-benefits">
         <p class="i-benefits__item">${await translate('004', 'index', lang)}</p>
@@ -162,18 +164,22 @@ export const view = async (lang: string, message?: Message, options?: Options) =
           onkeydown="check_query()"
           spellcheck="false"
           name="query"
-          class="${options?.is_valid === undefined
-            ? `i-embed`
-            : options?.is_valid === true
-            ? `i-embed i-embed--valid`
-            : `i-embed i-embed--invalid`}"
+          class="${
+						options?.is_valid === undefined
+							? 'i-embed'
+							: options?.is_valid === true
+							  ? 'i-embed i-embed--valid'
+							  : 'i-embed i-embed--invalid'
+					}"
         >
 ${options?.display_formatted_query}</textarea
         >
 
-        ${options?.is_valid === true
-          ? html`<a id="embed-button" class="i-embed__button" href="${options?.html_link}" target="_blank">Embed 🎉</a>`
-          : html`<input class="i-embed__button" type="submit" value="Check" />`}
+        ${
+					options?.is_valid === true
+						? html`<a id="embed-button" class="i-embed__button" href="${options?.html_link}" target="_blank">Embed 🎉</a>`
+						: html`<input class="i-embed__button" type="submit" value="Check" />`
+				}
       </form>
 
       <hr class="i-separator" />

@@ -4,12 +4,13 @@ import { layout } from '../views/_layout'
 import { User } from '../schema/user'
 
 export const view = (user: User, users: User[], need_setup: boolean, can_delete_own_account: boolean) =>
-  layout(html`
+	layout(html`
     <a class="s-back" href="./dashboard">← Tableau de bord</a>
 
-    ${need_setup
-      ? null
-      : html`
+    ${
+			need_setup
+				? null
+				: html`
           <div class="s-setting">
             <div class="s-setting__header">
               <p class="s-header__title">S'associer à un événement-tiers</p>
@@ -34,10 +35,12 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
               Vous pouvez vous dissocier d'un événément à tout moment depuis votre tableau de bord.
             </p>
           </div>
-        `}
-    ${need_setup
-      ? null
-      : html`
+        `
+		}
+    ${
+			need_setup
+				? null
+				: html`
           <div class="s-setting">
             <div class="s-setting__header">
               <p class="s-header__title">Modifier les utilisateurs</p>
@@ -61,7 +64,7 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
 
             <form method="post" enctype="multipart/form-data">
               ${users.map((u) => {
-                return html`
+								return html`
                   <div class="s-user">
                     <p class="s-user__text">${u.email}</p>
 
@@ -76,8 +79,9 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
                       administrateur
                     </button>
 
-                    ${user.email !== u.email
-                      ? html`<button
+                    ${
+											user.email !== u.email
+												? html`<button
                           formaction="./settings?action=remove_user"
                           value="${u.email}"
                           class="s-button"
@@ -86,13 +90,15 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
                         >
                           ✕&nbsp; supprimer
                         </button>`
-                      : null}
+												: null
+										}
                   </div>
                 `
-              })}
+							})}
             </form>
           </div>
-        `}
+        `
+		}
 
     <!--  -->
     <div class="s-setting">
@@ -105,9 +111,10 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
       </div>
     </div>
 
-    ${need_setup
-      ? null
-      : html`
+    ${
+			need_setup
+				? null
+				: html`
           <form class="s-setting" method="post" enctype="multipart/form-data">
             <div class="s-setting__header">
               <p class="s-header__title">Se déconnecter</p>
@@ -120,14 +127,17 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
               />
             </div>
           </form>
-        `}
+        `
+		}
 
     <!--  -->
-    ${need_setup
-      ? null
-      : html`
-          ${can_delete_own_account
-            ? html`
+    ${
+			need_setup
+				? null
+				: html`
+          ${
+						can_delete_own_account
+							? html`
                 <form class="s-setting s-setting--danger" method="post" enctype="multipart/form-data">
                   <div class="s-setting__header">
                     <p class="s-header__title">Supprimer <span class="s-domain">${user.email}</span></p>
@@ -147,11 +157,13 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
                   </p>
                 </form>
               `
-            : null}
+							: null
+					}
 
           <!--  -->
-          ${user.is_admin === 'true'
-            ? html`
+          ${
+						user.is_admin === 'true'
+							? html`
                 <form class="s-setting s-setting--danger" method="post" enctype="multipart/form-data">
                   <div class="s-setting__header">
                     <p class="s-header__title">Archiver <span class="s-domain">${user.domain}</span></p>
@@ -189,6 +201,8 @@ export const view = (user: User, users: User[], need_setup: boolean, can_delete_
                   </p>
                 </form>
               `
-            : null}
-        `}
+							: null
+					}
+        `
+		}
   `)

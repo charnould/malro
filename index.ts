@@ -50,8 +50,8 @@ app.post('/:kind/:id/edit', is_auth, save_article)
 app.post('/settings', is_auth, save_settings)
 
 app.onError((err, c) => {
-  console.error(err)
-  return c.redirect('/')
+	console.error(err)
+	return c.redirect('/')
 })
 
 export default app

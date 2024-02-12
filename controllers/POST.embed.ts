@@ -8,25 +8,25 @@ import { Options } from '../schema/api'
 const db = mount_db(DB.events, { readonly: true })
 
 export const controller = async (c: Context) => {
-  try {
-    const body = await c.req.parseBody()
+	try {
+		const body = await c.req.parseBody()
 
-    const opts = {
-      query: body.query === '' ? null : (body.query as string),
-      origin: body.example ? 'example' : 'embed',
-      display_formatted_query: null,
-      lang: c.get('lang') as string,
-      embed_code: null,
-      html_link: null,
-      json_link: null,
-      format: 'html',
-      embed: false
-    }
+		const opts = {
+			query: body.query === '' ? null : (body.query as string),
+			origin: body.example ? 'example' : 'embed',
+			display_formatted_query: null,
+			lang: c.get('lang') as string,
+			embed_code: null,
+			html_link: null,
+			json_link: null,
+			format: 'html',
+			embed: false
+		}
 
-    if (body.example) {
-      switch (body.example) {
-        case '1':
-          opts.query = `  SELECT    *, MIN(start) AS next
+		if (body.example) {
+			switch (body.example) {
+				case '1':
+					opts.query = `  SELECT    *, MIN(start) AS next
                           FROM      calendar
                           INNER     JOIN events USING (id)
                           INNER     JOIN linked_to USING (id)
@@ -35,10 +35,10 @@ export const controller = async (c: Context) => {
                           AND       calendar.start > STRFTIME('%Y-%m-%d', 'now')
                           GROUP BY  id
                           ORDER BY  next`
-          break
+					break
 
-        case '2':
-          opts.query = `  SELECT    *
+				case '2':
+					opts.query = `  SELECT    *
                           FROM      events
                           INNER     JOIN calendar USING (id)
                           WHERE     status = 'published'
@@ -49,10 +49,10 @@ export const controller = async (c: Context) => {
                           AND       calendar.start > STRFTIME('%Y-%m-%dT%H:%M', 'now')
                           GROUP BY  id
                           LIMIT     50`
-          break
+					break
 
-        case '3':
-          opts.query = `  SELECT    *
+				case '3':
+					opts.query = `  SELECT    *
                           FROM      events
                           INNER     JOIN calendar USING (id)
                           WHERE     status = 'published'
@@ -65,10 +65,10 @@ export const controller = async (c: Context) => {
                           AND       latitude < 45.10624504504504
                           GROUP BY  id
                           LIMIT     1`
-          break
+					break
 
-        case '4':
-          opts.query = `  SELECT    *
+				case '4':
+					opts.query = `  SELECT    *
                           FROM      events
                           INNER     JOIN calendar USING (id)
                           WHERE     status = 'published'
@@ -77,23 +77,23 @@ export const controller = async (c: Context) => {
                           AND       calendar.feature LIKE '%relax%'
                           AND       calendar.start > STRFTIME('%Y-%m-%dT%H:%M', 'now')
                           GROUP BY  id`
-          break
-      }
-    }
+					break
+			}
+		}
 
-    const options: Options = build_options(opts)
+		const options: Options = build_options(opts)
 
-    try {
-      db.query(options.query!).run()
-      options.is_valid = true
-    } catch {
-      options.is_valid = false
-    }
+		try {
+			db.query(options.query!).run()
+			options.is_valid = true
+		} catch {
+			options.is_valid = false
+		}
 
-    setCookie(c, 'malro_embed', JSON.stringify(options))
-    return c.redirect('/#embed')
-  } catch (e) {
-    console.log(e)
-    return c.redirect('/')
-  }
+		setCookie(c, 'malro_embed', JSON.stringify(options))
+		return c.redirect('/#embed')
+	} catch (e) {
+		console.log(e)
+		return c.redirect('/')
+	}
 }
