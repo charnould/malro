@@ -59,7 +59,7 @@ it('should capitalize firstname', () => {
 //
 //
 it('should strip multiple spaces and emojis', () => {
-	const input = ' 👍 This 👍👍 is a     👍 👍  👍 test 👍  '
+	const input = " 👍 This 👍👍 is a'     👍 👍  👍 test 👍  "
 	const output = strip_multiple_spaces_and_emojis(input)
-	expect(output).toBe('This is a test')
+	expect(output).toBe("This is a' test")
 })
