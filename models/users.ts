@@ -2,7 +2,7 @@
 import { readableStreamToJSON } from 'bun'
 
 import { mount_db, DB } from '../helpers/database'
-import { User } from '../schema/user'
+import type { User } from '../schema/user'
 
 const db = mount_db(DB.users)
 

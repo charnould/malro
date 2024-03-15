@@ -1,4 +1,4 @@
-import { BunFile, file, env } from 'bun'
+import { type BunFile, file, env } from 'bun'
 import { raw } from 'hono/html'
 
 // A simple function to "internalize" css styles into widget html view.

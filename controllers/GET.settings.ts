@@ -1,8 +1,8 @@
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import { view } from '../views/settings.html'
 import { get_users } from '../models/users'
-import { User } from '../schema/user'
+import type { User } from '../schema/user'
 
 /* Controller */
 export const controller = async (c: Context) => {

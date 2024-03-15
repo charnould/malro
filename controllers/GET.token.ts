@@ -1,5 +1,5 @@
 import { setCookie } from 'hono/cookie'
-import { Context } from 'hono'
+import type { Context } from 'hono'
 import { env } from 'bun'
 
 import { extract_domain_from_email, encrypt_jwt, decrypt_jwt } from '../helpers/auth'

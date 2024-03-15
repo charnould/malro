@@ -1,5 +1,5 @@
-import { Event } from '../schema/event'
-import { LANG } from '../enums/lang'
+import type { Event } from '../schema/event'
+import type { LANG } from '../enums/lang'
 
 //
 //

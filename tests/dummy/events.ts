@@ -1,4 +1,4 @@
-import { Event } from '../../schema/event'
+import type { Event } from '../../schema/event'
 
 export const dummy_event: Event = {
 	description: [

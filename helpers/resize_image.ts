@@ -1,6 +1,6 @@
 import { spawnSync, spawn, write, sleep } from 'bun'
 
-import { Event } from '../schema/event'
+import type { Event } from '../schema/event'
 
 export const resize_image = async (blob: ArrayBuffer, id: Event['id']) => {
 	// Write uploaded image into tmp/.

@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer'
 import { file, env } from 'bun'
-import { Context } from 'hono'
+import type { Context } from 'hono'
 import qs from 'qs'
 
 import { save_event, get_event, Table } from '../models/events'

@@ -3,7 +3,7 @@ import { html } from 'hono/html'
 import { env } from 'bun'
 
 import { layout } from '../views/_layout'
-import { Event } from '../schema/event'
+import type { Event } from '../schema/event'
 
 export const view = (domain: string, events: Event[]) =>
 	layout(

@@ -4,8 +4,8 @@ import { env } from 'bun'
 import { internalize_css } from '../../helpers/internalize_css'
 import { iframe_video } from '../../helpers/iframe_video'
 import { translate } from '../../helpers/translate'
-import { Event } from '../../schema/event'
-import { Options } from '../../schema/api'
+import type { Event } from '../../schema/event'
+import type { Options } from '../../schema/api'
 
 //
 //

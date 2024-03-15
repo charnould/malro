@@ -4,7 +4,7 @@ import { env } from 'bun'
 import { Message } from '../controllers/POST.index'
 import { translate } from '../helpers/translate'
 import { layout } from '../views/_layout'
-import { Options } from '../schema/api'
+import type { Options } from '../schema/api'
 
 export const view = async (lang: string, message?: Message, options?: Options) =>
 	layout(html`

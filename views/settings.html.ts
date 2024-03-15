@@ -1,7 +1,7 @@
 import { html } from 'hono/html'
 
 import { layout } from '../views/_layout'
-import { User } from '../schema/user'
+import type { User } from '../schema/user'
 
 export const view = (user: User, users: User[], need_setup: boolean, can_delete_own_account: boolean) =>
 	layout(html`

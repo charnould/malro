@@ -1,5 +1,5 @@
 import { deleteCookie, setCookie } from 'hono/cookie'
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import {
 	unlink_an_organization_from_an_event,

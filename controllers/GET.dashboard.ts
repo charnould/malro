@@ -1,4 +1,4 @@
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import { list_events } from '../models/events'
 import { view } from '../views/dashboard.html'

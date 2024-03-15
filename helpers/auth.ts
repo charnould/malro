@@ -1,5 +1,5 @@
 import { getCookie } from 'hono/cookie'
-import { Context, Next } from 'hono'
+import type { Context, Next } from 'hono'
 import * as jose from 'jose'
 import { env } from 'bun'
 import { z } from 'zod'
@@ -9,7 +9,7 @@ import { get_users, get_user } from '../models/users'
 import { get_event, Table } from '../models/events'
 import { mount_db, DB } from './database'
 import { send_email } from './emailer'
-import { User } from '../schema/user'
+import type { User } from '../schema/user'
 
 const db = mount_db(DB.users)
 

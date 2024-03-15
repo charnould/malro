@@ -1,8 +1,8 @@
 import { deleteCookie, getCookie } from 'hono/cookie'
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import { view } from '../views/index.html'
-import { Options } from '../schema/api'
+import type { Options } from '../schema/api'
 
 export const controller = async (c: Context) => {
 	const translation: string = c.get('lang').ui as string

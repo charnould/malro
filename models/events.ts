@@ -1,12 +1,12 @@
 // ALL TESTED
 
-import { Statement } from 'bun:sqlite'
+import type { Statement } from 'bun:sqlite'
 import { spawnSync, argv } from 'bun'
 
 import { turn_stringified_into_parsed_events } from '../helpers/transform'
 import { mount_db, DB } from '../helpers/database'
-import { Event } from '../schema/event'
-import { User } from '../schema/user'
+import type { Event } from '../schema/event'
+import type { User } from '../schema/user'
 
 const events_db = mount_db(DB.events)
 const users_db = mount_db(DB.users)

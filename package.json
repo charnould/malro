@@ -1,86 +1,81 @@
 {
-  "―――――――――――――――――": "",
-  "| GENERAL STUFF |": "",
-  "—————————————————": "",
-  "description": "Making cultural event data universally accessible",
-  "author": "Charles-Henri Arnould <charnould@icloud.com>",
-  "homepage": "https://www.malro.org",
-  "module": "index.ts",
-  "license": "MIT",
-  "type": "module",
-  "name": "malro",
-  "―――――――――――": "",
-  "| SCRITPS |": "",
-  "———————————": "",
-  "scripts": {
-    "―—――――――": "",
-    "start": "bash run.sh init_db && bun run index.ts",
-    "――――――――": "",
-    "dev:css": "bun dev:stylelint && lightningcss --minify assets/css/src/app.css -d assets/css/dist && lightningcss --minify assets/css/src/w001.css -d assets/css/dist",
-    "dev:format": "bun x doctoc README.md && bunx @biomejs/biome format . --write",
-    "dev:lint": "bunx @biomejs/biome lint . --apply",
-    "dev:init": "bash run.sh cleanup && bash run.sh init_db && bash run.sh seed_db && bun install",
-    "dev:upgrade": "bun upgrade && ncu -u && bun install && gem install kamal",
-    "dev:stylelint": "bun x stylelint 'assets/css/src/*.css' --fix",
-    "dev:start": "bun run --watch index.ts",
-    "dev:build": "docker build -t malro .",
-    "――――—――": "",
-    "deploy:bash": "kamal app exec -i --reuse bash -c deploy.yaml",
-    "deploy:unlock": "kamal lock release -c deploy.yaml",
-    "deploy:rollback": "kamal rollback -c deploy.yaml",
-    "deploy:logs": "kamal app logs -c deploy.yaml",
-    "deploy:env": "kamal env push -c deploy.yaml",
-    "deploy": "kamal deploy -c deploy.yaml"
-  },
-  "――――――――――――――――": "",
-  "| DEPENDENCIES |": "",
-  "————————————————": "",
-  "dependencies": {
-    "croner": "^8.0.1",
-    "hono": "^4.1.0",
-    "jose": "^5.2.3",
-    "qs": "^6.12.0",
-    "sql-formatter": "^15.2.0",
-    "zod": "^3.22.4"
-  },
-  "――――――――――――――――――――": "",
-  "| DEV DEPENDENCIES |": "",
-  "————————————————————": "",
-  "devDependencies": {
-    "stylelint-config-idiomatic-order": "^10.0.0",
-    "stylelint-selector-bem-pattern": "^4.0.0",
-    "stylelint-config-standard": "^36.0.0",
-    "lightningcss-cli": "^1.24.1",
-    "stylelint": "^16.2.1",
-    "puppeteer": "^22.4.1",
-    "bun-types": "^1.0.31",
-    "@types/qs": "^6.9.12",
-    "doctoc": "^2.2.1",
-    "json5": "^2.2.3"
-  },
-  "――――――—―――――――――――――": "",
-  "| STYLELINT CONFIG |": "",
-  "———————————————————―": "",
-  "stylelint": {
-    "extends": [
-      "stylelint-config-idiomatic-order",
-      "stylelint-config-standard"
-    ],
-    "rules": {
-      "selector-class-pattern": [
-        "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
-        {
-          "message": "Expected class selector to be BEM-compatible"
-        }
-      ],
-      "color-function-notation": [
-        "modern",
-        {
-          "ignore": [
-            "with-var-inside"
-          ]
-        }
-      ]
-    }
-  }
+	"―――――――――――――――――": "",
+	"| GENERAL STUFF |": "",
+	"—————————————————": "",
+	"description": "Making cultural event data universally accessible",
+	"author": "Charles-Henri Arnould <charnould@icloud.com>",
+	"homepage": "https://www.malro.org",
+	"module": "index.ts",
+	"license": "MIT",
+	"type": "module",
+	"name": "malro",
+	"―――――――――――": "",
+	"| SCRITPS |": "",
+	"———————————": "",
+	"scripts": {
+		"―—――――――": "",
+		"start": "bash run.sh init_db && bun run index.ts",
+		"――――――――": "",
+		"dev:css": "bun dev:stylelint && lightningcss --minify assets/css/src/app.css -d assets/css/dist && lightningcss --minify assets/css/src/w001.css -d assets/css/dist",
+		"dev:format": "bun x doctoc README.md && bunx @biomejs/biome format . --write",
+		"dev:lint": "bunx @biomejs/biome lint . --apply",
+		"dev:init": "bash run.sh cleanup && bash run.sh init_db && bash run.sh seed_db && bun install",
+		"dev:upgrade": "bun upgrade && ncu -u && bun install && gem install kamal",
+		"dev:stylelint": "bun x stylelint 'assets/css/src/*.css' --fix",
+		"dev:start": "bun run --watch index.ts",
+		"dev:build": "docker build -t malro .",
+		"――――—――": "",
+		"deploy:bash": "kamal app exec -i --reuse bash -c deploy.yaml",
+		"deploy:unlock": "kamal lock release -c deploy.yaml",
+		"deploy:rollback": "kamal rollback -c deploy.yaml",
+		"deploy:logs": "kamal app logs -c deploy.yaml",
+		"deploy:env": "kamal env push -c deploy.yaml",
+		"deploy": "kamal deploy -c deploy.yaml"
+	},
+	"――――――――――――――――": "",
+	"| DEPENDENCIES |": "",
+	"————————————————": "",
+	"dependencies": {
+		"croner": "^8.0.1",
+		"hono": "^4.1.0",
+		"jose": "^5.2.3",
+		"qs": "^6.12.0",
+		"sql-formatter": "^15.2.0",
+		"zod": "^3.22.4"
+	},
+	"――――――――――――――――――――": "",
+	"| DEV DEPENDENCIES |": "",
+	"————————————————————": "",
+	"devDependencies": {
+		"stylelint-config-idiomatic-order": "^10.0.0",
+		"stylelint-selector-bem-pattern": "^4.0.0",
+		"stylelint-config-standard": "^36.0.0",
+		"lightningcss-cli": "^1.24.1",
+		"stylelint": "^16.2.1",
+		"puppeteer": "^22.4.1",
+		"bun-types": "^1.0.31",
+		"@types/qs": "^6.9.12",
+		"doctoc": "^2.2.1",
+		"json5": "^2.2.3"
+	},
+	"――――――—―――――――――――――": "",
+	"| STYLELINT CONFIG |": "",
+	"———————————————————―": "",
+	"stylelint": {
+		"extends": ["stylelint-config-idiomatic-order", "stylelint-config-standard"],
+		"rules": {
+			"selector-class-pattern": [
+				"^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
+				{
+					"message": "Expected class selector to be BEM-compatible"
+				}
+			],
+			"color-function-notation": [
+				"modern",
+				{
+					"ignore": ["with-var-inside"]
+				}
+			]
+		}
+	}
 }

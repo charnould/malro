@@ -1,11 +1,11 @@
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import { keep_only_future_occurrences, get_relevant_translation } from '../helpers/transform'
 import { turn_stringified_into_parsed_events } from '../helpers/transform'
 import { view as v001 } from '../views/widgets/001.html'
 import { mount_db, DB } from '../helpers/database'
 import { build_options } from '../helpers/embed'
-import { Event } from '../schema/event'
+import type { Event } from '../schema/event'
 
 const db = mount_db(DB.events, { readonly: true })
 

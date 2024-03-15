@@ -1,7 +1,7 @@
 import { format } from 'sql-formatter'
 import { env } from 'bun'
 
-import { Options } from '../schema/api'
+import type { Options } from '../schema/api'
 
 export const build_options = (data) => {
 	const options: Options = {

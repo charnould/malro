@@ -1,4 +1,4 @@
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import { turn_stringified_into_parsed_events } from '../helpers/transform'
 import { get_event, Table } from '../models/events'

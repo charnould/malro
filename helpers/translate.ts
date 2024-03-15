@@ -1,4 +1,4 @@
-import { Context, Next } from 'hono'
+import type { Context, Next } from 'hono'
 import { raw } from 'hono/html'
 
 import { WIDGET_TRANSLATION, INDEX_TRANSLATION, APP_TRANSLATION } from '../enums/translation'

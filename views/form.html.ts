@@ -2,7 +2,7 @@
 // TODO: locales + translation fr/en
 
 import { html } from 'hono/html'
-import { ZodError } from 'zod'
+import type { ZodError } from 'zod'
 
 import { translate } from '../helpers/translate'
 import { CURRENCY } from '../enums/currency'
@@ -11,7 +11,7 @@ import { BOOKING } from '../enums/booking'
 import { FEATURE } from '../enums/feature'
 import { COUNTRY } from '../enums/country'
 import { layout } from '../views/_layout'
-import { Event } from '../schema/event'
+import type { Event } from '../schema/event'
 import { LANG } from '../enums/lang'
 import { TYPE } from '../enums/type'
 

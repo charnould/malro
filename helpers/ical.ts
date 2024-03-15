@@ -3,7 +3,7 @@ import { Buffer } from 'buffer'
 import { turn_stringified_into_parsed_events } from '../helpers/transform'
 import { get_event, Table } from '../models/events'
 import { transform_date } from './transform'
-import { Event } from '../schema/event'
+import type { Event } from '../schema/event'
 
 //
 //

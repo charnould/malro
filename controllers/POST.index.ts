@@ -1,4 +1,4 @@
-import { Context } from 'hono'
+import type { Context } from 'hono'
 import { z } from 'zod'
 
 import { send_admin_emails_to, send_magic_link_to } from '../helpers/auth'

@@ -1,9 +1,9 @@
 import { setCookie } from 'hono/cookie'
-import { Context } from 'hono'
+import type { Context } from 'hono'
 
 import { mount_db, DB } from '../helpers/database'
 import { build_options } from '../helpers/embed'
-import { Options } from '../schema/api'
+import type { Options } from '../schema/api'
 
 const db = mount_db(DB.events, { readonly: true })
 
