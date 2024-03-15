@@ -205,9 +205,16 @@ export const Event = z
 			.url()
 			.regex(/^https:\/\/www.youtube.com\/watch\?v=.+$/, { message: 'not_a_valid_youtube_video_url' })
 			.transform((url) => {
-				const video_id = url.match(/v=[a-zA-Z0-9-]+/)[0].substring(2)
+				const video_id = url.match(/v=[a-zA-Z0-9\-\_]+/)[0].substring(2)
 				return `https://www.youtube-nocookie.com/embed/${video_id}`
 			})
+			.or(
+				z
+					.string()
+					.url()
+					.regex(/^https:\/\/www.youtube-nocookie.com\/embed\/.+$/, { message: 'not_a_valid_youtube_video_url' })
+					.transform((url) => url)
+			)
 			.or(z.string().transform(() => null)),
 
 		//
